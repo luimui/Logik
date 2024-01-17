@@ -1,0 +1,20 @@
+%https://swish.swi-prolog.org/p/Ludwig%20Krause%20Logik.pl
+% Student exercise profile
+:- set_prolog_flag(occurs_check, error).        % disallow cyclic terms
+:- set_prolog_stack(global, limit(8 000 000)).  % limit term space (8Mb)
+:- set_prolog_stack(local,  limit(2 000 000)).  % limit environment space
+
+% Your program goes here
+
+last_elem(L,E):- 
+    L = [H|[]],
+    E is H.
+last_elem(L,E):- 
+    L = [_|T], 
+    last_elem(T,E).
+   
+
+
+/** <examples> Your example queries go here, e.g.
+?- member(X, [cat, mouse]).
+*/
